@@ -1,150 +1,35 @@
 <!doctype html>
-<html lang="vi">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="theme-color" content="#101827">
-<title>Baccarat Calculator</title>
+<html lang="vi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#0b1220"><title>Baccarat Calculator</title>
 <style>
-:root{color-scheme:dark;--bg:#0b1020;--panel:#141c2e;--panel2:#1b263b;--line:#2a3852;--text:#f4f7ff;--muted:#9ba9c2;--blue:#8ab4ff;--green:#54d6a0;--red:#ff7b88;--gold:#ffd479}
-*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at top,#182746 0,#0b1020 55%);color:var(--text);font:16px -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;min-height:100vh;padding:env(safe-area-inset-top) 14px env(safe-area-inset-bottom)}
-main{max-width:620px;margin:0 auto;padding:20px 0 40px}.head{display:flex;align-items:center;gap:12px;margin:4px 0 20px}.logo{width:48px;height:48px;border-radius:15px;background:linear-gradient(135deg,#5d8cff,#9b7bff);display:grid;place-items:center;font-size:24px;box-shadow:0 8px 24px #527cff30}.head h1{font-size:21px;margin:0 0 4px}.sub{color:var(--muted);font-size:12px}.panel{background:linear-gradient(180deg,#172136,#121a2a);border:1px solid var(--line);border-radius:20px;padding:17px;margin:13px 0;box-shadow:0 12px 28px #0002}.section-title{font-size:15px;font-weight:750;margin:0 0 14px;display:flex;align-items:center;gap:8px}.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.field label{display:block;color:var(--muted);font-size:12px;margin:0 0 7px}.field input{width:100%;min-width:0;background:#0c1424;border:1px solid #34425d;border-radius:12px;padding:13px 12px;color:var(--text);font-size:17px;outline:none}.field input:focus{border-color:var(--blue);box-shadow:0 0 0 3px #8ab4ff20}.hint{font-size:12px;color:var(--muted);line-height:1.45;margin-top:12px}.result{background:linear-gradient(145deg,#202f4d,#17233b);border:1px solid #3a4c6c;border-radius:17px;text-align:center;padding:18px 12px;margin-top:16px}.eyebrow{font-size:11px;letter-spacing:1.5px;color:#b5c4de;font-weight:700}.number{font-size:44px;line-height:1.15;font-weight:850;margin:7px 0 10px;letter-spacing:-1px}.pills{display:flex;justify-content:center;gap:8px;flex-wrap:wrap}.pill{border-radius:999px;padding:7px 13px;font-weight:800;font-size:13px;background:#2b3c58}.pill.con{color:#8ab4ff;background:#203b62}.pill.cai{color:#ff9eaa;background:#512a3c}.equation{font-size:12px;color:#bac7dc;margin-top:12px;overflow-wrap:anywhere}.btn{appearance:none;border:0;border-radius:13px;padding:13px 15px;font-size:15px;font-weight:750;width:100%;cursor:pointer;background:linear-gradient(135deg,#82adff,#9b8bff);color:#101827;margin-top:13px}.btn.secondary{background:#202c42;border:1px solid #34445f;color:#e8efff}.btn.danger{background:#38202d;border:1px solid #613344;color:#ffb7c0}.btn:active{transform:scale(.99)}.toolbar{display:flex;justify-content:space-between;align-items:center;gap:8px}.count{color:var(--muted);font-size:12px}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:12px 0}.stat{background:#0d1627;border:1px solid var(--line);border-radius:13px;padding:12px 8px;text-align:center}.stat strong{display:block;font-size:21px;margin-bottom:4px}.stat span{color:var(--muted);font-size:11px}.history-item{background:#0e1728;border:1px solid #2a3852;border-radius:15px;padding:13px;margin-top:10px}.hist-top{display:flex;justify-content:space-between;gap:8px;align-items:center}.hist-name{font-weight:800}.status{font-size:11px;border-radius:999px;padding:5px 8px;background:#29354b;color:#c3d0e5;white-space:nowrap}.status.ok{background:#123c32;color:#76e7b9}.status.bad{background:#48232d;color:#ff9ba7}.status.skip{background:#3d3523;color:#ffdf93}.hist-data{color:var(--muted);font-size:12px;line-height:1.6;margin:9px 0}.hist-result{display:flex;align-items:center;justify-content:space-between;gap:8px;font-weight:800}.small-actions{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin-top:12px}.small-actions button{border-radius:10px;border:1px solid #35435c;background:#1b2940;color:#e9efff;padding:10px 5px;font-size:12px;font-weight:700}.small-actions button:active{opacity:.7}.empty{text-align:center;color:var(--muted);font-size:13px;padding:22px 8px}.note{font-size:11px;color:#93a3bd;line-height:1.55;margin:14px 3px}.footer{font-size:11px;text-align:center;color:#72829c;margin-top:20px}
-@media(min-width:520px){body{padding-left:22px;padding-right:22px}.panel{padding:20px}}
-</style>
-</head>
-<body>
-<main>
-  <header class="head">
-    <div class="logo">♠</div>
-    <div><h1>Baccarat Calculator</h1><div class="sub">TÍNH CÔNG THỨC · LỊCH SỬ TRÊN THIẾT BỊ</div></div>
-  </header>
-
-  <section class="panel">
-    <h2 class="section-title">✦ 01 · Nhập dữ liệu ván</h2>
-    <div class="grid">
-      <div class="field"><label for="round">Số ván bài</label><input id="round" type="number" inputmode="numeric" step="1" placeholder="Ví dụ: 10"></div>
-      <div class="field"><label for="cards">Số lá bài đã mở</label><input id="cards" type="number" inputmode="numeric" step="1" placeholder="Ví dụ: 6"></div>
-      <div class="field"><label for="player">Tổng điểm Con</label><input id="player" type="number" inputmode="numeric" step="1" placeholder="Điểm Con"></div>
-      <div class="field"><label for="banker">Tổng điểm Cái (0–9)</label><input id="banker" type="number" inputmode="numeric" min="0" max="9" step="1" placeholder="Điểm Cái"></div>
-    </div>
-    <div class="hint">Cơ số tự động: điểm Cái 0–4 → 1 · 5–7 → 2 · 8–9 → 3.</div>
-    <div id="result" class="result" aria-live="polite">
-      <div class="eyebrow">SỐ CUỐI CÙNG</div>
-      <div class="number">—</div>
-      <div class="pills"><span class="pill">Chờ nhập dữ liệu</span></div>
-      <div class="equation">K = Ván − Lá đã mở + Điểm Con + Điểm Cái + Cơ số</div>
-    </div>
-    <button id="save" class="btn">＋ Lưu kết quả vào lịch sử</button>
-    <button id="clearForm" class="btn secondary">Xóa ô nhập · Ván mới</button>
-    <div id="message" class="hint" role="status"></div>
-  </section>
-
-  <section class="panel">
-    <div class="toolbar"><h2 class="section-title" style="margin:0">▤ 02 · Lịch sử</h2><span id="count" class="count">0 lần tính</span></div>
-    <div class="stats">
-      <div class="stat"><strong id="correct">0</strong><span>Đúng</span></div>
-      <div class="stat"><strong id="wrong">0</strong><span>Sai</span></div>
-      <div class="stat"><strong id="accuracy">—</strong><span>Tỷ lệ đúng*</span></div>
-    </div>
-    <div class="hint">Sau khi ván thực tế kết thúc, chọn kết quả thực tế cho từng lần tính để chấm đúng/sai. Hòa được tính riêng, không đưa vào tỷ lệ đúng.</div>
-    <div id="history"><div class="empty">Chưa có lịch sử. Nhập dữ liệu rồi bấm “Lưu kết quả”.</div></div>
-    <button id="export" class="btn secondary">⇩ Xuất lịch sử dạng CSV</button>
-    <button id="clearHistory" class="btn danger">Xóa toàn bộ lịch sử</button>
-  </section>
-
-  <p class="note">* Lịch sử được lưu bằng localStorage trên trình duyệt của thiết bị này. Nếu xóa dữ liệu Safari, dùng chế độ riêng tư hoặc đổi trình duyệt, dữ liệu có thể mất. Hãy xuất CSV để sao lưu định kỳ. Kết quả chẵn/lẻ chỉ áp dụng quy tắc bạn nhập, không đảm bảo dự đoán kết quả Baccarat thực tế.</p>
-  <div class="footer">Baccarat Calculator · Bản web app cá nhân</div>
+:root{color-scheme:dark;--bg:#0b1220;--panel:#151f31;--field:#0c1423;--line:#2c3a52;--muted:#a8b5ca;--white:#f5f7ff;--blue:#89adff;--purple:#9b8aff;--green:#69e0ad;--red:#ff8d9a}*{box-sizing:border-box}body{margin:0;background:linear-gradient(160deg,#172746,#0b1220 48%);color:var(--white);font:16px -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;padding:calc(16px + env(safe-area-inset-top)) 14px calc(28px + env(safe-area-inset-bottom))}main{max-width:620px;margin:auto}.brand{display:flex;gap:12px;align-items:center;margin:8px 0 22px}.logo{width:48px;height:48px;display:grid;place-items:center;border-radius:15px;background:linear-gradient(135deg,var(--blue),var(--purple));color:#10182a;font-size:25px;font-weight:900}.brand h1{font-size:22px;margin:0 0 4px}.sub{font-size:12px;color:var(--muted)}.card{background:rgba(21,31,49,.97);border:1px solid var(--line);border-radius:20px;padding:17px;margin:14px 0}.heading{font-size:16px;font-weight:800;margin:0 0 16px}.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.field label{display:block;color:var(--muted);font-size:13px;margin-bottom:7px}.field input{width:100%;min-width:0;border:1px solid #3a4a65;border-radius:12px;background:var(--field);padding:14px 12px;color:var(--white);font-size:18px;outline:none}.field input:focus{border-color:var(--blue)}.hint,.notice{font-size:12px;line-height:1.55;color:var(--muted);margin-top:12px}.result{margin-top:16px;padding:20px 12px;text-align:center;border-radius:16px;background:linear-gradient(140deg,#203253,#18243b);border:1px solid #3b5075}.eyebrow{font-size:11px;letter-spacing:2px;color:#c2d0e8;font-weight:800}.big{font-size:46px;font-weight:900;margin:8px 0}.tags{display:flex;justify-content:center;gap:8px;flex-wrap:wrap}.tag{padding:8px 14px;border-radius:30px;background:#2a3b58;font-size:13px;font-weight:850}.tag.con{background:#203b60;color:#a9caff}.tag.cai{background:#512a3b;color:#ffb2bd}.formula{font-size:12px;color:#c0cce0;margin-top:13px;overflow-wrap:anywhere}.btn{width:100%;border:0;border-radius:13px;padding:14px;margin-top:12px;font-size:15px;font-weight:800;background:linear-gradient(120deg,var(--blue),var(--purple));color:#111a2b}.btn.secondary{background:#202d43;color:var(--white);border:1px solid #3a4a65}.btn.danger{background:#3c202b;color:#ffb5bf;border:1px solid #653344}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:14px 0}.stat{border:1px solid var(--line);border-radius:12px;background:#0d1626;padding:12px 5px;text-align:center}.stat strong{font-size:20px;display:block}.stat span{font-size:11px;color:var(--muted)}.item{border:1px solid var(--line);border-radius:14px;background:#0d1626;padding:13px;margin-top:10px}.itemtop{display:flex;justify-content:space-between;align-items:center;gap:8px}.itemtop b{font-size:14px}.status{font-size:11px;border-radius:20px;padding:5px 8px;background:#2b3850;color:#d5deee}.status.good{background:#123b30;color:var(--green)}.status.bad{background:#48232e;color:var(--red)}.detail{font-size:12px;color:var(--muted);line-height:1.6;margin:9px 0}.actions{display:grid;grid-template-columns:repeat(3,1fr);gap:7px}.actions button{border:1px solid #3a4a65;border-radius:9px;background:#202d43;color:var(--white);padding:10px 4px;font-size:12px;font-weight:700}.empty{text-align:center;padding:22px 5px;color:var(--muted);font-size:13px}.message{font-size:12px;color:var(--green);margin-top:10px;min-height:16px}
+</style></head><body><main>
+<header class="brand"><div class="logo">♠</div><div><h1>Baccarat Calculator</h1><div class="sub">MÁY TÍNH CÔNG THỨC · LƯU LỊCH SỬ</div></div></header>
+<section class="card"><h2 class="heading">01 · Nhập dữ liệu</h2><div class="grid">
+<div class="field"><label for="round">Số ván bài</label><input id="round" type="number" inputmode="numeric" step="1" placeholder="Ví dụ: 15"></div>
+<div class="field"><label for="cards">Số lá đã mở</label><input id="cards" type="number" inputmode="numeric" step="1" placeholder="Ví dụ: 3"></div>
+<div class="field"><label for="player">Tổng điểm Con</label><input id="player" type="number" inputmode="numeric" step="1" placeholder="Ví dụ: 9"></div>
+<div class="field"><label for="banker">Tổng điểm Cái (0–9)</label><input id="banker" type="number" inputmode="numeric" min="0" max="9" step="1" placeholder="Ví dụ: 8"></div></div>
+<div class="hint">Cơ số Cái: điểm 0–4 → 1 · 5–7 → 2 · 8–9 → 3.</div>
+<div class="result" id="result" aria-live="polite"><div class="eyebrow">SỐ CUỐI CÙNG</div><div class="big">—</div><div class="tags"><span class="tag">Nhập đủ 4 ô để tính</span></div><div class="formula">K = Ván − Lá đã mở + Điểm Con + Điểm Cái + Cơ số</div></div>
+<button class="btn" id="save">＋ Lưu kết quả</button><button class="btn secondary" id="reset">Xóa ô nhập · Ván mới</button><div class="message" id="message" role="status"></div></section>
+<section class="card"><h2 class="heading">02 · Lịch sử và đúng/sai</h2><div class="stats"><div class="stat"><strong id="correct">0</strong><span>Đúng</span></div><div class="stat"><strong id="wrong">0</strong><span>Sai</span></div><div class="stat"><strong id="rate">—</strong><span>Tỷ lệ đúng</span></div></div><div class="hint">Sau khi có kết quả thực tế, chọn Con, Cái hoặc Hòa ở bản ghi tương ứng.</div><div id="history"><div class="empty">Chưa có dữ liệu lịch sử.</div></div><button class="btn secondary" id="export">Xuất lịch sử CSV</button><button class="btn danger" id="clear">Xóa toàn bộ lịch sử</button></section>
+<p class="notice">Lịch sử lưu trong trình duyệt trên thiết bị này bằng localStorage. Xóa dữ liệu trình duyệt có thể làm mất lịch sử; hãy xuất CSV để sao lưu. Công thức chỉ tính theo quy tắc bạn nhập, không bảo đảm dự đoán kết quả Baccarat thực tế.</p>
 </main>
 <script>
 (function(){
-  "use strict";
-  const KEY="baccaratCalculatorHistory_v1";
-  const $=id=>document.getElementById(id);
-  const fields={v:$("round"),l:$("cards"),p:$("player"),b:$("banker")};
-  let history=[];
-  try{const saved=localStorage.getItem(KEY);history=saved?JSON.parse(saved):[];if(!Array.isArray(history))history=[];}catch(e){history=[];}
-
-  function values(){
-    const raw=Object.values(fields).map(el=>el.value.trim());
-    if(raw.some(x=>x===""))return {ok:false,why:"Bạn hãy nhập đủ 4 ô."};
-    const [v,l,p,b]=raw.map(Number);
-    if(![v,l,p,b].every(Number.isFinite))return {ok:false,why:"Dữ liệu không hợp lệ."};
-    if(!Number.isInteger(v)||!Number.isInteger(l)||!Number.isInteger(p)||!Number.isInteger(b))return {ok:false,why:"Vui lòng nhập số nguyên."};
-    if(v<0||l<0||p<0||b<0||b>9)return {ok:false,why:"Số ván, số lá và điểm Con phải từ 0 trở lên; điểm Cái phải từ 0 đến 9."};
-    const base=b<=4?1:b<=7?2:3;
-    const total=v-l+p+b+base;
-    const parity=Math.abs(total)%2===0?"Chẵn":"Lẻ";
-    const predicted=parity==="Chẵn"?"Con":"Cái";
-    return {ok:true,v,l,p,b,base,total,parity,predicted};
-  }
-  function renderResult(){
-    const r=values(),box=$("result");
-    if(!r.ok){
-      box.innerHTML='<div class="eyebrow">SỐ CUỐI CÙNG</div><div class="number">—</div><div class="pills"><span class="pill">Chờ nhập dữ liệu</span></div><div class="equation">K = Ván − Lá đã mở + Điểm Con + Điểm Cái + Cơ số</div>';
-      $("message").textContent="";
-      return;
-    }
-    box.innerHTML='<div class="eyebrow">SỐ CUỐI CÙNG</div><div class="number">'+r.total+'</div><div class="pills"><span class="pill">'+r.parity.toUpperCase()+'</span><span class="pill '+(r.predicted==="Con"?"con":"cai")+'">'+r.predicted.toUpperCase()+'</span></div><div class="equation">'+r.v+' − '+r.l+' + '+r.p+' + '+r.b+' + '+r.base+' = '+r.total+' · Cơ số '+r.base+'</div>';
-  }
-  function persist(){
-    try{localStorage.setItem(KEY,JSON.stringify(history));return true;}
-    catch(e){$("message").textContent="Không thể lưu dữ liệu. Hãy kiểm tra dung lượng hoặc cài đặt Safari.";return false;}
-  }
-  function esc(s){return String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));}
-  function renderHistory(){
-    $("count").textContent=history.length+" lần tính";
-    const decided=history.filter(x=>x.status==="Đúng"||x.status==="Sai");
-    const good=history.filter(x=>x.status==="Đúng").length;
-    const bad=history.filter(x=>x.status==="Sai").length;
-    $("correct").textContent=good;$("wrong").textContent=bad;
-    $("accuracy").textContent=decided.length?Math.round(good/decided.length*100)+"%":"—";
-    if(!history.length){$("history").innerHTML='<div class="empty">Chưa có lịch sử. Nhập dữ liệu rồi bấm “Lưu kết quả”.</div>';return;}
-    $("history").innerHTML=history.map((x)=> {
-      const statusClass=x.status==="Đúng"?"ok":x.status==="Sai"?"bad":x.status==="Hòa"?"skip":"";
-      const statusLabel=x.status==="Chưa chấm"?"Chưa chấm":x.status;
-      const actual=x.actual?'<div class="hist-data">Kết quả thực tế: <b>'+esc(x.actual)+'</b></div>':"";
-      const buttons=x.status==="Chưa chấm"?'<div class="small-actions"><button data-id="'+x.id+'" data-actual="Con">Thực tế: Con</button><button data-id="'+x.id+'" data-actual="Cái">Thực tế: Cái</button><button data-id="'+x.id+'" data-actual="Hòa">Thực tế: Hòa</button></div>':'<div class="small-actions"><button data-id="'+x.id+'" data-actual="reset">Chấm lại</button><button data-id="'+x.id+'" data-actual="delete">Xóa lần này</button><button data-id="'+x.id+'" data-actual="reset">Đặt lại</button></div>';
-      return '<article class="history-item"><div class="hist-top"><div class="hist-name">#'+esc(x.id)+' · '+esc(x.predicted)+' '+esc(x.parity.toLowerCase())+'</div><span class="status '+statusClass+'">'+esc(statusLabel)+'</span></div><div class="hist-data">Ván '+esc(x.v)+' · Lá '+esc(x.l)+' · Con '+esc(x.p)+' · Cái '+esc(x.b)+' · Cơ số '+esc(x.base)+'<br>'+esc(x.time||"")+'</div><div class="hist-result"><span>Số cuối: '+esc(x.total)+'</span><span>'+esc(x.parity)+'</span></div>'+actual+buttons+'</article>';
-    }).join("");
-  }
-  Object.values(fields).forEach(el=>el.addEventListener("input",renderResult));
-  $("save").addEventListener("click",()=>{
-    const r=values();if(!r.ok){$("message").textContent=r.why;return;}
-    const item={id:Date.now().toString(36)+"-"+Math.random().toString(36).slice(2,6),v:r.v,l:r.l,p:r.p,b:r.b,base:r.base,total:r.total,parity:r.parity,predicted:r.predicted,status:"Chưa chấm",actual:"",time:new Date().toLocaleString("vi-VN")};
-    history.unshift(item);
-    if(persist()){renderHistory();$("message").textContent="Đã lưu kết quả trên thiết bị này.";}
-  });
-  $("clearForm").addEventListener("click",()=>{Object.values(fields).forEach(el=>el.value="");renderResult();$("message").textContent="";fields.v.focus();});
-  $("history").addEventListener("click",e=>{
-    const btn=e.target.closest("button[data-id]");if(!btn)return;
-    const id=btn.dataset.id,act=btn.dataset.actual;
-    if(act==="delete"){history=history.filter(x=>x.id!==id);}
-    else if(act==="reset"){history=history.map(x=>x.id===id?{...x,status:"Chưa chấm",actual:""}:x);}
-    else{
-      history=history.map(x=>{
-        if(x.id!==id)return x;
-        const status=act==="Hòa"?"Hòa":act===x.predicted?"Đúng":"Sai";
-        return {...x,status,actual:act};
-      });
-    }
-    persist();renderHistory();
-  });
-  $("clearHistory").addEventListener("click",()=>{
-    if(!history.length)return;
-    if(confirm("Xóa toàn bộ lịch sử đã lưu trên thiết bị này? Không thể hoàn tác.")){history=[];persist();renderHistory();$("message").textContent="Đã xóa lịch sử.";}
-  });
-  $("export").addEventListener("click",()=>{
-    if(!history.length){$("message").textContent="Chưa có lịch sử để xuất.";return;}
-    const rows=[["ID","Thời gian","Số ván","Số lá đã mở","Điểm Con","Điểm Cái","Cơ số","Số cuối","Chẵn/lẻ","Dự đoán","Trạng thái","Thực tế"]];
-    history.slice().reverse().forEach(x=>rows.push([x.id,x.time,x.v,x.l,x.p,x.b,x.base,x.total,x.parity,x.predicted,x.status,x.actual||""]));
-    const csv="\uFEFF"+rows.map(row=>row.map(v=>'"'+String(v??"").replace(/"/g,'""')+'"').join(",")).join("\r\n");
-    const blob=new Blob([csv],{type:"text/csv;charset=utf-8;"});
-    const url=URL.createObjectURL(blob),a=document.createElement("a");
-    a.href=url;a.download="baccarat-lich-su.csv";document.body.appendChild(a);a.click();a.remove();URL.revokeObjectURL(url);
-    $("message").textContent="Đã tạo tệp CSV. Kiểm tra mục Tệp/Tải về của iPhone.";
-  });
-  renderResult();renderHistory();
+'use strict';const KEY='baccaratCalcHistory_v3',ids=['round','cards','player','banker'],el=id=>document.getElementById(id);let history=[];
+try{const x=JSON.parse(localStorage.getItem(KEY)||'[]');if(Array.isArray(x))history=x;}catch(e){}
+function vals(){const a=ids.map(i=>el(i).value.trim());if(a.some(x=>x===''))return{error:'Hãy nhập đủ cả 4 ô.'};const[v,l,p,b]=a.map(Number);if(![v,l,p,b].every(Number.isFinite)||![v,l,p,b].every(Number.isInteger))return{error:'Vui lòng nhập số nguyên hợp lệ.'};if(v<0||l<0||p<0||b<0||b>9)return{error:'Điểm Cái phải từ 0 đến 9; các ô khác không được âm.'};const base=b<=4?1:b<=7?2:3,total=v-l+p+b+base,parity=Math.abs(total)%2===0?'Chẵn':'Lẻ';return{v,l,p,b,base,total,parity,predicted:parity==='Lẻ'?'Con':'Cái'};}
+function show(){const r=vals(),box=el('result');if(r.error){box.innerHTML='<div class="eyebrow">SỐ CUỐI CÙNG</div><div class="big">—</div><div class="tags"><span class="tag">'+r.error+'</span></div><div class="formula">K = Ván − Lá đã mở + Điểm Con + Điểm Cái + Cơ số</div>';return;}box.innerHTML='<div class="eyebrow">SỐ CUỐI CÙNG</div><div class="big">'+r.total+'</div><div class="tags"><span class="tag">'+r.parity.toUpperCase()+'</span><span class="tag '+(r.predicted==='Con'?'con':'cai')+'">'+r.predicted.toUpperCase()+'</span></div><div class="formula">'+r.v+' − '+r.l+' + '+r.p+' + '+r.b+' + '+r.base+' = '+r.total+' · Cơ số '+r.base+'</div>';}
+function persist(){try{localStorage.setItem(KEY,JSON.stringify(history));return true;}catch(e){el('message').textContent='Không lưu được lịch sử trong trình duyệt.';return false;}}
+function esc(x){return String(x??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
+function render(){const c=history.filter(x=>x.status==='Đúng').length,w=history.filter(x=>x.status==='Sai').length,d=c+w;el('correct').textContent=c;el('wrong').textContent=w;el('rate').textContent=d?Math.round(c/d*100)+'%':'—';if(!history.length){el('history').innerHTML='<div class="empty">Chưa có dữ liệu lịch sử.</div>';return;}el('history').innerHTML=history.map(x=>{const cls=x.status==='Đúng'?'good':x.status==='Sai'?'bad':'';const controls=x.status==='Chưa chấm'?'<div class="actions"><button data-id="'+esc(x.id)+'" data-a="Con">Thực tế: Con</button><button data-id="'+esc(x.id)+'" data-a="Cái">Thực tế: Cái</button><button data-id="'+esc(x.id)+'" data-a="Hòa">Thực tế: Hòa</button></div>':'<div class="actions"><button data-id="'+esc(x.id)+'" data-a="reset">Chấm lại</button><button data-id="'+esc(x.id)+'" data-a="delete">Xóa lần này</button><button data-id="'+esc(x.id)+'" data-a="reset">Đặt lại</button></div>';return '<article class="item"><div class="itemtop"><b>Dự đoán '+esc(x.predicted)+' ('+esc(x.parity)+')</b><span class="status '+cls+'">'+esc(x.status)+'</span></div><div class="detail">Ván '+esc(x.v)+' · Lá '+esc(x.l)+' · Con '+esc(x.p)+' · Cái '+esc(x.b)+' · Cơ số '+esc(x.base)+'<br>Số cuối: <b>'+esc(x.total)+'</b> · '+esc(x.time)+'</div>'+(x.actual?'<div class="detail">Thực tế: '+esc(x.actual)+'</div>':'')+controls+'</article>';}).join('');}
+ids.forEach(i=>el(i).addEventListener('input',show));
+el('save').addEventListener('click',()=>{const r=vals();if(r.error){el('message').textContent=r.error;return;}history.unshift({...r,id:Date.now().toString(36),status:'Chưa chấm',actual:'',time:new Date().toLocaleString('vi-VN')});if(persist()){render();el('message').textContent='Đã lưu lịch sử trên thiết bị này.';}});
+el('reset').addEventListener('click',()=>{ids.forEach(i=>el(i).value='');show();el('message').textContent='';});
+el('history').addEventListener('click',e=>{const b=e.target.closest('button[data-id]');if(!b)return;const id=b.dataset.id,a=b.dataset.a;if(a==='delete')history=history.filter(x=>x.id!==id);else if(a==='reset')history=history.map(x=>x.id===id?{...x,status:'Chưa chấm',actual:''}:x);else history=history.map(x=>x.id!==id?x:{...x,actual:a,status:a==='Hòa'?'Hòa':a===x.predicted?'Đúng':'Sai'});persist();render();});
+el('clear').addEventListener('click',()=>{if(history.length&&confirm('Xóa toàn bộ lịch sử?')){history=[];persist();render();}});
+el('export').addEventListener('click',()=>{if(!history.length){el('message').textContent='Chưa có lịch sử để xuất.';return;}const rows=[['Thời gian','Số ván','Số lá','Điểm Con','Điểm Cái','Cơ số','Số cuối','Chẵn/lẻ','Dự đoán','Trạng thái','Thực tế']];history.slice().reverse().forEach(x=>rows.push([x.time,x.v,x.l,x.p,x.b,x.base,x.total,x.parity,x.predicted,x.status,x.actual]));const csv='\uFEFF'+rows.map(r=>r.map(v=>'"'+String(v??'').replace(/"/g,'""')+'"').join(',')).join('\r\n'),url=URL.createObjectURL(new Blob([csv],{type:'text/csv;charset=utf-8'})),a=document.createElement('a');a.href=url;a.download='baccarat-lich-su.csv';document.body.appendChild(a);a.click();a.remove();URL.revokeObjectURL(url);el('message').textContent='Đã tạo CSV để sao lưu.';});
+show();render();
 })();
-</script>
-</body>
-</html>
+</script></body></html>
